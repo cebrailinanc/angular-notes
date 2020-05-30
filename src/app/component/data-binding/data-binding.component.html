@@ -1,0 +1,61 @@
+<h6>{{title}} {{getTitleByMethod()}}</h6>
+<h6 [class]="classBind">{{title + '  '+getTitleByMethod()}}</h6>
+<h6 [textContent]="title" [class]="classBind"></h6>
+
+<div>
+  <p>[src]="imagePath" [width]="size" [height]="size"</p>
+  <img [src]="imagePath" [width]="size" [height]="size">
+</div>
+
+<div>
+  <p>src="&#123; &#123; imagePath &#125; &#125;" width="&#123; &#123;size &#125; &#125;" height="&#123; &#123;size
+    &#125; &#125;"</p>
+  <img src="{{imagePath}}" width="{{size}}" height="{{size}}">
+</div>
+<div>
+  <p>[src]="getImagePath()"</p>
+  <img [src]="getImagePath()">
+</div>
+
+
+<div>
+  <button class="border-button green-button" [class]="isDisable"> [class]="isDisable" </button>
+</div>
+
+<div>
+  <button class="border-button " [class.green-button]="isDisable"> [class.green-button]="isDisable"</button>
+</div>
+<div>
+  <button class="border-button green-button" [class.disabled]="isDisable"> [class.disabled]="isDisable"</button>
+</div>
+
+<div>
+  <button class="blueFont" [ngClass]="getClass()"> [ngClass]="getClass()" </button>
+</div>
+
+<div>
+  <button (click)="triggerAlert()"> (click)="triggerAlert() </button>
+</div>
+
+<div (click)="onClickDiv()">
+  <button (click)="onBtnClick('btn1')"> btn1</button>
+  <button (click)="onBtnClick('btn2')"> btn2 </button>
+</div>
+
+
+<div style="margin: 10px;">
+  <input (keyup)="keyupEvent()" />
+</div>
+
+<div style="margin: 10px;">
+  <input #name (keyup.enter)="keyupEvent(name.value)" placeholder="enter ile tetiklenir" />
+</div>
+
+
+<h4>Two-way Data Binding</h4>
+
+<input type="text" [value]="email" (keyup)="email=$event.target.value" />
+<p> email: {{email}} </p>
+<input type="text" [(ngModel)]="userName" />
+<br>
+<h4>Welcome: {{userName}}</h4>
